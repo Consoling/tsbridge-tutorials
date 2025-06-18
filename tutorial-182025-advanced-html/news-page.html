@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechNews Today - Latest Tech Updates</title>
+    <meta
+      name="description"
+      content="Stay updated with the latest technology news, trends, and innovations. Explore articles on AI, gadgets, software, and more."
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+      header {
+        background: #35424a;
+        color: #ffffff;
+        padding: 20px 0;
+        text-align: center;
+      }
+      .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        margin-top: 1rem;
+      }
+      nav li {
+        margin-right: 2rem;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+      nav a:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      article {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 1rem;
+        background: #ffffff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      article header {
+        background: none;
+        color: #333;
+        padding: 0 0 1rem 0;
+        border-bottom: 2px solid #e2e2e2;
+      }
+
+      article h2 {
+        margin-bottom: 0.5rem;
+        font-size: 1.8rem;
+        color: #7f8cfd;
+      }
+
+      article time{
+        color: #7f8c8d;
+        font-size: 0.9rem;
+      }
+
+      aside {
+        background: #e2e2e2;
+        padding: 1rem;
+        margin: 1rem 0;
+        height: fit-content;
+      }
+
+      aside section {
+        margin-bottom: 2rem;
+      }
+      aside h3 {
+        color: #2c3e50;
+        margin-bottom: 1rem;
+      }
+      aside ul {
+        list-style: none;
+      }
+      aside li {
+        margin-bottom: 0.5rem;
+      }
+      aside a {
+        color: #2c3e50;
+        text-decoration: none;
+      }
+
+      aside a:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        background: #35424a;
+        color: #ffffff;
+        text-align: center;
+        padding: 10px 0;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <header role="banner">
+      <div class="header-content">
+        <h1>TechNews Today</h1>
+        <p>Your daily dose of technology news and updates</p>
+        <nav role="navigation">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#latest-news">Latest News</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main role="main">
+      <section id="articles">
+        <article itemtype="https://schema.org/NewsArticle" itemscope>
+          <header>
+            <h2 itemprop="headline">Latest Tech Innovations</h2>
+            <p itemprop="description">
+              Explore the latest advancements in technology, from AI
+              breakthroughs to cutting-edge gadgets. by
+              <strong itemprop="author">-Jane Doe</strong>
+            </p>
+          </header>
+          <div itemprop="articleBody">
+            <p>
+              The tech industry is buzzing with excitement as new innovations
+              emerge daily. From artificial intelligence to quantum computing,
+              the future of technology looks promising. In this article, we
+              delve into the latest trends and what they mean for consumers and
+              businesses alike.
+            </p>
+            <figure>
+              <img
+                src="https://picsum.photos/600/300?random=quantum"
+                alt="Quantum Photo"
+              />
+              <figcaption>
+                IBM's latest quantum computer demonsrates...
+              </figcaption>
+            </figure>
+            <p>
+              Stay tuned for more updates as we continue to cover the most
+              significant developments in the tech world.
+            </p>
+          </div>
+          <footer>
+            <p>Tags: <a href="#quantum" rel="tag">Quantum Computing</a></p>
+          </footer>
+        </article>
+      </section>
+
+      <!-- Aside tag -->
+
+      <aside>
+        <section>
+          <h3>Trending topics</h3>
+          <nav>
+            <ul>
+              <li><a href="">AI & ML</a></li>
+              <li><a href="">VR</a></li>
+              <li><a href="">FSTCK Web Dev</a></li>
+              <li><a href="">Ethical Hacking</a></li>
+              <li><a href="">Quantum Computing</a></li>
+            </ul>
+          </nav>
+        </section>
+
+        <section>
+          <h3>Newsletter signup</h3>
+          <p>Get the latest tech insights delivered to you</p>
+          <form action="">
+            <label for="newsletter-email">Email Address</label>
+            <input type="email" id="newsletter-email" name="email" required />
+            <button type="submit">Subscribe</button>
+            <!-- <button type="reset">Reset</button> -->
+          </form>
+        </section>
+
+        <section>
+          <h3>Recent Comments</h3>
+          <article>
+            <h4>On "Ai Revolution in 2025"</h4>
+            <p><strong>Tech Enthusiast:</strong>"Great insights on AI</p>
+            <time datetime="20252025-06-18T11:45:00Z">2 hours ago</time>
+          </article>
+        </section>
+      </aside>
+    </main>
+    <footer>
+      <div class="footer-content">
+        <p>&copy; 2025 TechNews Today. All Rights reserved</p>
+      </div>
+    </footer>
+  </body>
+</html>

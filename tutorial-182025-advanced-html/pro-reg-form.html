@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pro Registration Form</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 2rem;
+      }
+
+      .form-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+      .form-header {
+        background: linear-gradient(135deg, #2c3e50, #3498db);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      form {
+        padding: 2rem;
+      }
+      fieldset {
+        border: 2px solid #ecf0f1;
+        border-radius: 8px;
+        margin: 2rem 0;
+        padding: 1.5rem;
+      }
+      legend {
+        background: #3498db;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        font-weight: bold;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+      .full-width {
+        grid-column: 1 / -1;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #2c3e50;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 1rem;
+        border: 2px solid #ecf0f1;
+        border-radius: 6px;
+        font-size: 1rem;
+        transition: all 0.3s;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #3498db;
+        box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+      }
+      input:valid {
+        border-color: #27ae60;
+      }
+      input:invalid:not(:focus):not(:placeholder-shown) {
+        border-color: #e74c3c;
+      }
+
+      .validation-message {
+        color: #e74c3c;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+        display: none;
+      }
+      input:invalid:not(:focus):not(:placeholder-shown) + .validation-message {
+        display: block;
+      }
+
+      .progress-container {
+        margin: 1rem 0;
+      }
+      .progress-label {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      progress {
+        width: 100%;
+        height: 8px;
+        border: none;
+        border-radius: 4px;
+      }
+      progress::-webkit-progress-bar {
+        background: #ecf0f1;
+        border-radius: 4px;
+      }
+      progress::-webkit-progress-value {
+        background: linear-gradient(90deg, #3498db, #2ecc71);
+        border-radius: 4px;
+      }
+
+      .range-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      input[type="range"] {
+        flex: 1;
+      }
+      .range-value {
+        background: #3498db;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-weight: bold;
+        min-width: 60px;
+        text-align: center;
+      }
+
+      .checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      .checkbox-group input[type="checkbox"] {
+        width: auto;
+      }
+
+      button {
+        background: linear-gradient(135deg, #3498db, #2ecc71);
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 6px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+      button:hover {
+        transform: translateY(-2px);
+      }
+      button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <div class="form-header">
+        <h1>Pro Registration Form</h1>
+        <p>Advanced HTML5 Form demo</p>
+      </div>
+
+      <form id="registrationForm">
+        <!-- Progress Indicator -->
+        <div class="progress-indicator">
+          <div class="progress-label">
+            Form Completion: <span id="progressText">0%</span>
+            <progress id="formProgress" value="0" max="100"></progress>
+          </div>
+
+          <!-- Personal Info Fieldsets -->
+          <fieldset>
+            <legend>Personal Information</legend>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  required
+                  placeholder="Enter your first name"
+                  title="Only Letters and spaces are allowed"
+                  pattern="[A-Za-z\s]+"
+                  minlength="2"
+                  maxlength="50"
+                />
+                <div class="validation-message">
+                  Please enter a valid first name (letters and spaces only).
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="firstName">Last Name</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  required
+                  placeholder="Enter your last name"
+                  title="Only Letters and spaces are allowed"
+                  pattern="[A-Za-z\s]+"
+                  minlength="2"
+                  maxlength="50"
+                />
+                <div class="validation-message">
+                  Please enter a valid last name (letters and spaces only).
+                </div>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="firstName">Email Address</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  autocomplete="email"
+                  required
+                  placeholder="Enter your email address"
+                  title="Only Letters and spaces are allowed"
+                />
+                <div class="validation-message">
+                  Please enter a valid email address.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="firstName">Phone Number</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  pattern="^\+91[6-9]\d{9}$"
+                  required
+                  placeholder="Enter your phone number"
+                  title="Enter a valid indian phone number"
+                />
+                <div class="validation-message">
+                  Please enter a valid indian phone number.
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="birthdate">Date of Birth</label>
+                <input
+                  type="date"
+                  name="birthdate"
+                  id="birthdate"
+                  required
+                  min="1940-01-01"
+                />
+                <div class="validation-message">
+                  Please enter a valid birth date.
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Professional Information</legend>
+            <div class="form-group">
+              <label
+                for="
+                jobTitle"
+                >Job Title</label
+              >
+              <input
+                type="text"
+                name="jobTitle"
+                id="jobTitle"
+                list="jobTitles"
+                placeholder="Start typing to see suggestions"
+              />
+              <datalist id="jobTitles">
+                <option value="SDE"></option>
+                <option value="Ethical Hacker"></option>
+                <option value="DevOPs Eng"></option>
+                <option value="Cloud Arhcitect"></option>
+                <option value="ML Engineer"></option>
+                <option value="Kubernetes Eng"></option>
+                <option value="CyberSecurity Analyst"></option>
+              </datalist>
+            </div>
+
+            <div class="form-group">
+              <label for="experience">Years of Experience</label>
+              <div class="range-container">
+                <input
+                  type="range"
+                  name="experience"
+                  id="experience"
+                  min="0"
+                  max="50"
+                  step="1"
+                  value="3"
+                  required
+                />
+                <span class="range-value" id="experienceValue">3 years</span>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="salary">Expected Salary</label>
+                <input
+                  type="number"
+                  name="salary"
+                  id="salary"
+                  min="300000"
+                  max="5000000"
+                  placeholder="Enter your expected salary"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="startDate">Available Start Date</label>
+                <input
+                  type="date"
+                  name="startDate"
+                  id="startDate"
+                  min="2025-06-18"
+                />
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Additonal Info</legend>
+
+            <div class="form-group">
+              <label for="resume"
+                >Upload Resueme (PDF, DOC, DOCX - Max 5MB)</label
+              >
+              <input
+                type="file"
+                name="resume"
+                id="resume"
+                accept=".pdf,.doc,.docx"
+                required
+              />
+              <div class="validation-message">
+                Please upload a valid resume file (PDF, DOC, DOCX).
+              </div>
+            </div>
+
+            <div class="checkbox-group">
+              <input type="checkbox" name="terms" id="terms" required />
+              <label for="terms"
+                >I agree to the <a href="#">Terms and Conditions</a></label
+              >
+            </div>
+          </fieldset>
+        </div>
+
+        <button type="submit">Complete Registration</button>
+      </form>
+    </div>
+  </body>
+</html>

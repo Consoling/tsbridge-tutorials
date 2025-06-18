@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="dob-input">Select your DOB</label>
+      <input type="date" id="dob-input" required />
+      <input type="color" name="color" id="" />
+      <input
+        type="email"
+        name="email"
+        id=""
+        placeholder="Enter your email"
+        required
+      />
+      
+      <input
+        type="number"
+        name="tel"
+        id=""
+        placeholder="Enter your phone number"
+        required
+        pattern="^\+91[6-9]\d{9}$"
+      />
+      <button type="submit">Submit Form</button>
+    </form>
+  </body>
+</html>
