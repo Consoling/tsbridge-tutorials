@@ -1,0 +1,179 @@
+/* Cascading Style Sheet */
+
+/* Method 1 : External CSS File (Best practice) */
+
+body {
+  background-color: #0f0f0f;
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Element Selector */
+
+a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+/* Class Selector */
+
+.intro-2 {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: #1a73e8;
+}
+
+/* ID Selector */
+
+#intro-2 {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #ff5722;
+}
+
+/* Descendant Selector */
+
+div p {
+  font-size: 14px;
+  color: #f0f0f0;
+  margin: 10px 0;
+}
+
+/* Child Selector */
+
+div > p {
+  font-size: 14px;
+  color: #f0f0f0;
+  margin: 10px 0;
+}
+
+/* Attribute Selector */
+
+img[alt] {
+  color: #f0f0f0;
+}
+
+/* Pseudo-class Selector */
+
+button:hover {
+  background-color: #1a73e8;
+  color: white;
+  cursor: pointer;
+}
+
+/* First Child */
+
+ul li:first-child {
+  /* font-weight: bold;
+    color: #ff5722; */
+}
+
+/* nth child selector */
+
+ul li:nth-child(odd) {
+  font-weight: bold;
+  color: #ff5722;
+}
+
+h3 {
+  color: violet;
+}
+
+/* Color fOrmats */
+
+/* 1. named Colors */
+
+.cyan-text {`
+  color: cyan;
+}
+
+/*  2. Hexadecimal COlors */
+
+.hex-text {
+  color: #ff5733; /* Example Hex Color */
+}
+
+/* 3. RGB colors */
+.rgb-text {
+  color: rgb(255, 87, 51); /* Example RGB Color */
+}
+
+/* 4. RGBA Colors */
+
+.rgba-text {
+  color: rgba(255, 87, 51, 0.9); /* Example RGBA Color */
+}
+
+/* 5 HSL Colors */
+
+.hsl-text {
+  color: hsl(9, 100%, 60%); /* Example HSL Color */
+}
+
+:root {
+  --primary-color: #1a73e8;
+  --secondary-color: #ff5722;
+  --background-color: #0f0f0f;
+  --text-color: #f0f0f0;
+  --link-color: #1a73e8;
+  --hover-color: #ff5722;
+}
+
+h3 {
+  color: var(--primary-color);
+}
+
+.text-styles {
+  font-family: "Courier New", Courier, monospace;
+  /*Font Sizes  */
+
+  font-size: 18px;
+  font-size: 1.125rem; /* 18px */
+  font-size: 1.125em; /* 18px */
+
+  /* Font Weight */
+  font-weight: 400; /* Normal */
+  font-weight: bold;
+
+  /* Font Style */
+  font-style: italic; /* Italic */
+  font-style: normal; /* Normal */
+  font-style: oblique; /* Oblique */
+}
+
+p {
+  line-height: 1.8; /* Line Height */
+  word-spacing: 0.1em; /* Word Spacing */
+  text-transform: capitalize; /* Text Transform */
+}
+
+/* Box Model */
+
+.box-example {
+  width: 200px;
+  height: 100px;
+  background-color: #1a73e8; /* Background Color */
+  padding: 5px 10px 15px 20px; /* Padding */
+
+  margin: 10px 20px; /* Margin */
+
+  border: 2px dashed rgb(76, 148, 45); /* Border */
+  /* Margin */
+}
+
+.container {
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Flex Direction */
+
+  justify-content: center; /* Justify Content */
+  align-items: center; /* Align Items */
+  gap: 10px; /* Gap between items */
+}
+
+.hidden {
+  display: none; /* Hides the element */
+}

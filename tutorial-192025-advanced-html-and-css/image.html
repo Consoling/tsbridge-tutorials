@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image</title>
+  </head>
+  <body>
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeJTYEtFYqdlEss8tZcGNaCBEZJ6EvZfFKbH0MUy-SmSaF-8ARFUyvhlgqcmIbNQCyk5kXa3VDdNchH0bE-mPJRv0P8IANyhAoCnKHs-2pxw"
+      alt="Dog"
+      title="Hover to see this tooltip"
+      width="350"
+      height="400"
+    />
+
+    <!-- Basic responsiveness approach -->
+
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeJTYEtFYqdlEss8tZcGNaCBEZJ6EvZfFKbH0MUy-SmSaF-8ARFUyvhlgqcmIbNQCyk5kXa3VDdNchH0bE-mPJRv0P8IANyhAoCnKHs-2pxw"
+      alt="Dog"
+      style="max-width: 100%; height: auto"
+    />
+    <p>
+      The first image has fixed dimensions, while the second image is responsive
+      and will adjust its size based on the viewport width.
+    </p>
+
+    <!-- Advanced responsiveness -->
+
+    <img srcset=" "small-photo.jpg 480w, medium-photo.jpg 800w, large-photo.jpg
+    1200w" sizes="(max-width: 600px) 480px, (max-width: 900px) 800px, 1200px"
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeJTYEtFYqdlEss8tZcGNaCBEZJ6EvZfFKbH0MUy-SmSaF-8ARFUyvhlgqcmIbNQCyk5kXa3VDdNchH0bE-mPJRv0P8IANyhAoCnKHs-2pxw"
+    " alt="">
+
+    <!-- Image extensions -->
+
+    <!-- JPEG PNG WebP SVG -->
+
+    <video width="800" height="450" controls muted autoplay>
+      <source
+        src="https://www.w3schools.com/html/mov_bbb.mp4"
+        type="video/mp4"
+      />
+    </video>
+
+    <audio controls autoplay loop preload="auto">
+      <source
+        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        type="audio/mpeg"
+      />
+      Your browser does not support the audio element.
+    </audio>
+  </body>
+</html>

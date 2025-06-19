@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio Player</title>
+  </head>
+  <body>
+    <div class="audio-player">
+      <audio id="audioPlayer">
+        <source
+          src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+          type="audio/mpeg"
+        />
+      </audio>
+      <h3>Episode 1: Getting started</h3>
+      <p>Duration: <span id="duration">0:00</span></p>
+    </div>
+
+    <div class="player-controls">
+      <button onclick="playAudio()">Play</button>
+      <button onclick="pauseAudio()">Pause</button>
+      <input
+        type="range"
+        name=""
+        id="volumeSlider"
+        min="0"
+        max="1"
+        step="0.01"
+        value="0.5"
+        onchange="setVolume(this.value)"
+      />
+    </div>
+
+    <iframe
+      src="https://www.youtube.com/watch?v=LXb3EKWsInQ"
+      frameborder="0"
+      width="560"
+      height="315"
+      title="YouTube video player"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+
+    <script>
+      const audio = document.getElementById("audioPlayer");
+
+      function playAudio() {
+        audio.play();
+      }
+      function pauseAudio() {
+        audio.pause();
+      }
+
+      document
+        .getElementById("volumeSlider")
+        .addEventListener("input", function () {
+          audio.volume = this.value;
+        });
+    </script>
+  </body>
+</html>
