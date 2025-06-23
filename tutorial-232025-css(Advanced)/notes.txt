@@ -1,0 +1,63 @@
+The two Big categories
+
+Absolute Unit = fixed size
+
+px (pixels): like dots on your screen
+pt (points): 1 point = 1/72 inch
+cm, mm, in: real world measurements
+
+
+Relative Unit = flexible size
+
+em: based on current font size
+rem: based on root font size
+%: based on parent element
+vw, vh: based on screen size
+
+view width and view height and view port
+
+
+The font size Foundation:
+
+font-size: 16px;
+
+1rem = 16px
+
+1em = 16px
+
+
+Unit I - Pixels:
+
+1px = 1dot on the screen
+
+pixels are absolute 
+
+for example 10px  = 10px
+
+
+<!-- when to use pixels -->
+
+Borders (1px, 2px)
+small details that would never change
+image dimension
+
+<img width="100px" height='100px'/>
+
+
+Unit II - EM: 
+current element font size = 16px
+1em = current elements font size
+
+
+if font size = 16px then 1em = 16px
+if font size = 20px thne 1em = 20px
+ 
+
+ 2em = 2 * font-size
+ 2em = 2* 16px = 32px
+
+ 3em = 3 * font-size
+ 3em = 3* 16px = 48px
+
+ 0.5em = 1/2 of 16px
+ 0.5em = 1/2 * 16px = 8px

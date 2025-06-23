@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic EM Usage</title>
+    <style>
+        .em-container {
+            font-size: 20px; /* Base font size */
+            padding: 20px; /* Margin in ems */
+            border: 1px solid black
+        }
+
+        .em-text {
+            font-size: 1em; /* 1em = 20px */
+            margin: 1em; /* 1em = 20px */
+            padding: 0.5em; /* 0.5em = 10px */
+            background-color: lightgray;
+        }
+
+        .em-large {
+            font-size: 1.5em; /* 1.5em = 30px */
+            padding: 1.5em; /* 1.5em = 30px */
+        }
+    </style>
+</head>
+<body>
+    <div class="em-container">
+        <p class="em-text">I am 20px text with 20px margin</p>
+        <p class="em-large">I am 30px text with 30px padding</p>
+    </div>
+</body>
+</html>

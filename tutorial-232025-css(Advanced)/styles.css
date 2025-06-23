@@ -1,0 +1,16 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --text-color: #333;
+    --background-color: #f4f4f4;
+    --font-family: 'Arial', sans-serif;
+    --font-size: 16px;
+}
+
+/*  default font size in broswer is 16px or 1rem or 1em */
+/* 16px = 1rem = 1em*/
+.welcome-message{
+    /* font-size: 1rem; */
+    font-size: 16px;
+}
+
