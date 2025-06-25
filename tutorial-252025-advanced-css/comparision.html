@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display Types Comparision</title>
+    <style>
+      .demo-section {
+        margin: 2rem 0;
+        padding: 1rem;
+        border: 2px solid #ddd;
+      }
+      .block-demo {
+        display: block;
+        width: 100%;
+        height: 50px;
+        margin: 0.5rem;
+        padding: 1rem;
+        background-color: #2093b0;
+      }
+      .inline-demo {
+        display: inline;
+        padding: 0.5rem;
+        margin: 0.2rem;
+        background-color: #f39c12;
+        color: white;
+      }
+
+      .inline-block-demo {
+        background-color: lightgreen;
+        margin: 0.5rem;
+
+        display: inline-block;
+        width: 150px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="demo-section">
+      <h3>Block ELements (each on new line)</h3>
+      <div class="block-demo">Block 1</div>
+      <div class="block-demo">Block 2</div>
+      <div class="block-demo">Block 3</div>
+    </div>
+    <div class="demo-section">
+      <h3>Inline Elements (flow with text)</h3>
+      <span class="inline-demo">Inline 1</span>
+      <span class="inline-demo">Inline 2</span>
+      <span class="inline-demo">Inline 3</span>
+      <a href="#" class="inline-demo">Inline Link</a>
+    </div>
+    <div class="demo-section">
+      <h3>Flex Elements (responsive layout)</h3>
+      <div class="inline-block-demo">Flex 1</div>
+      <div class="inline-block-demo">Flex 2</div>
+      <div class="inline-block-demo">Flex 3</div>
+    </div>
+  </body>
+</html>

@@ -63,3 +63,27 @@ if font size = 20px thne 1em = 20px
  0.5em = 1/2 * 16px = 8px
 
  
+
+ 
+Unit II - REM: 
+
+1rem = root elements font size (16px)
+
+key difference from em:
+
+em = based on current element
+rem = based on root (html element)
+rem never stacks
+
+
+
+Unit III - Percentage: 
+
+Percentage is always relative to its parent element
+
+- width/height is of parents width/height
+
+- font-size - percentage of parent's font-size
+- margin/padding - percentage of parent's width 
+
+

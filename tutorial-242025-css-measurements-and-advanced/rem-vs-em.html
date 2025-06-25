@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rem vs EM</title>
+    <style>
+      html {
+        font-size: 18px;
+      }
+      .comparision {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .em-example,
+      .rem-example {
+        border: 1px solid black;
+        padding: 1rem;
+        width: 300px;
+      }
+
+      .em-parent {
+        font-size: 1.2em; /* 1.2 * 18px = 21.6px */
+      }
+
+      .em-child {
+        font-size: 1.2em; /* 1.2 * 21.6px = 25.92px */
+      }
+
+      .rem-parent {
+        font-size: 1.2em; /* 1.2 * 18px = 21.6px */
+      }
+
+      .rem-child {
+        font-size: 1.2rem; /* 1.2 * 18px = 21.6px */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="comparision">
+      <div class="em-example">
+        <h3>em Example (compounds)</h3>
+        <div class="em-parent">
+          Parent gets bigger (21.6px)
+          <div class="em-child">Child gets even bigger!</div>
+        </div>
+      </div>
+      <div class="rem-example">
+        <h3>rem Example (no compounds)</h3>
+        <div class="rem-parent">
+          Parent: 18px
+          <div class="rem-child">Child: 18px</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

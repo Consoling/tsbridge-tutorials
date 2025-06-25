@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .parent {
+        font-size: 16px; /* Base font size 1em = 16px */
+      }
+      .child {
+        font-size: 1.5em;
+        /* 1.5x the base size 1.5*16px = 24px */
+      }
+      .grandchild {
+        font-size: 1.5em; /* 2.25x the base size 1.5em *24px = 36px */
+      }
+      .great-grandchild {
+        font-size: 1.5em; /* 3.375x the base size 1.5em *36px = 54px */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      Parent: 16px
+      <div class="child">
+        Child: 24px
+        <div class="grandchild">
+          Grandchild: 36px
+          <div class="great-grandchild">Great Grandchild: 54px</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

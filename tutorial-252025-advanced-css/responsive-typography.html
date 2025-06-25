@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Typography</title>
+    <style>
+      .responsive-text {
+        text-align: center;
+        padding: 2rem;
+      }
+      .vw-title {
+        font-size: 5vw;
+        color: #2c3e50;
+      }
+
+      .vh-title {
+        font-size: 5vh;
+        color: #e74c3c;
+      }
+
+      .vmin-title {
+        font-size: 5vmin;
+        color: #8e44ad;
+      }
+      .problem-demo {
+        font-size: 10vw;
+        color: #f39c12;
+      }
+
+      .better-demo {
+        font-size: clamp(1.5rem, 2vw, 3rem);
+        color: #27ae60;
+      }
+
+      .responsive-div > nav > ul > li{
+        padding: 1rem 2rem;
+        background-color: #ecf0f1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="responsive-text">
+      <h1 class="vw-title">I scale with width (5vw)</h1>
+      <h1 class="vh-title">I scale with height (5vh)</h1>
+      <h1 class="vmin-title">I'm always proportional (5vmin)</h1>
+      <h1 class="problem-demo">Too big on desktop! (10vw)</h1>
+      <h1 class="better-demo">Just right everywhere! (clamp)</h1>
+    </div>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ratione
+      dolorum veritatis ullam suscipit recusandae assumenda, doloremque eaque
+      reiciendis corporis consequuntur animi corrupti, ea consequatur adipisci a
+      saepe repellat distinctio.
+    </p>
+
+    <div class="responsive-div">
+      <nav style="margin-top: 2rem">
+        <ul style="list-style: none; padding: 0; display: flex; gap: 1rem">
+          <li><a href="#vw-title">5vw</a></li>
+          <li><a href="#vh-title">5vh</a></li>
+          <li><a href="#vmin-title">5vmin</a></li>
+          <li><a href="#problem-demo">10vw</a></li>
+          <li><a href="#better-demo">clamp</a></li>
+          <li><a href="#better-demo">clamp</a></li>
+          <li><a href="#better-demo">clamp</a></li>
+          <li><a href="#better-demo">clamp</a></li>
+          <li><a href="#better-demo">clamp</a></li>
+          <li><a href="#better-demo">clamp</a></li>
+        </ul>
+      </nav>
+    </div>
+  </body>
+</html>

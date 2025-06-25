@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --button-color: #4caf50; /* Green */
+  --font-family: "Courier New", Courier, monospace;
+  --font-size: 16px;
+  --font-family-lato: "Lato", sans-serif;
+  --font-family-montserrat: "Montserrat", sans-serif;
+}
+.black-box {
+  width: 200px;
+  height: 200px;
+  background-color: black;
+}
+#blue-box {
+  width: 200px;
+  height: 200px;
+  background-color: blue;
+}
+
+ul {
+  list-style: none;
+}
+
+ul > li > a {
+  color: var(--button-color);
+  font-family: var(--font-family-montserrat);
+  text-decoration: none;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+}
+
+ul > li {
+  gap: 10px;
+  margin: 10px 0px;
+
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+ul li:nth-child(odd) {
+  background-color: #cecece;
+}
+ul li:nth-child(even) {
+  background-color: #f0f0f0;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-border {
+  width: 200px;
+  height: 200px;
+  border: 5px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-border > button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.box-border > button:hover {
+  background-color: var(--button-color);
+  color: white;
+}
+
+.pseudo-input {
+  font-family: var(--font-family-lato);
+  border: 2px solid #ccc;
+  padding: 10px;
+}
+
+.pseudo-input::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+.pseudo-input:focus {
+  border-color: var(--button-color);
+  outline: none;
+}
+
+.text-1 {
+  font-weight: medium;
+  font-style: italic;
+  font-size: 25px;
+  font-family: var(--font-family-lato);
+}
+
+/* Measurements */
+
+.outer-container {
+  position: relative;
+  /* width: 100%; */
+}
+
+.inner-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0%;
+  right: -5%;
+  transform: translate(-50%, -50%);
+}
+
+.image-tower:hover {
+  transform: scale(0.5);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}

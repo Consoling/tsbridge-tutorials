@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Rem USage</title>
+
+    <style>
+      html {
+        font-size: 16px;
+      }
+
+      .rem-container {
+        font-size: 2rem; /*2 * font size = 32px */
+        padding: 1rem; /* 16px */
+        background-color: lightgray;
+        margin: 0.5rem; /* 8px */
+      }
+
+      .rem-child {
+        font-size: 1.5rem; /* 1.5 * 16px = 24px */
+        padding: 1rem; /* 16px */
+        background-color: lightblue;
+      }
+      .rem-grandchild {
+        font-size: 1rem; /* 1 * 16px = 16px */
+        padding: 1rem; /* 16px */
+        background-color: lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rem-container">
+      container: 32px font, 16px padding
+      <div class="rem-child">
+        Child: 24px font, 16px padding
+        <div class="rem-grandchild">Grandchild: 16px font, 16px padding</div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -6,19 +6,24 @@
     <title>Document</title>
     <style>
       .button {
-        /* font-size: 1em; */
+        /* 16px */
+        font-size: 1em;
         padding: 0.75em 1.5em;
+        /* 0.75em * 16px = 12px */
+        /* 1.5em * 16px = 24px */
         border: 0.1em solid blue;
+        /* 0.1em * 16px = 1.6px */
         border-radius: 0.25em;
+        /* 0.25em * 16px = 4px */
         background: lightblue;
         margin: 0.5em;
+        /* 0.5em * 16px = 8px */
       }
       .button-small {
-        font-size: 14px; /* 1em = 16px, so 0.875em = 14px */
-
+        font-size: 0.875em; /* 1em = 16px, so 0.875em = 14px */
       }
       .button-medium {
-        font-size: 16px; /* 1em = 16px */
+        font-size: 1em; /* 1em = 16px */
       }
       .button-large {
         font-size: 1.25em; /* 1.25em = 20px */
@@ -26,8 +31,8 @@
     </style>
   </head>
   <body>
-    <button class="small- button">Small Button</button>
-    <button class="medium-button button">Medium Button</button>
-    <button class="large-button button">Large Button</button>
+    <button class="button-small button">Small Button</button>
+    <button class="button-medium button">Medium Button</button>
+    <button class="button-large button">Large Button</button>
   </body>
 </html>

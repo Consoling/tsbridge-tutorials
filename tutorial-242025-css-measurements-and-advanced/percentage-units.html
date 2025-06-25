@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Percentage Units</title>
+    <style>
+      .quarter-width {
+        width: 25%;
+        background: lightgreen;
+        margin-bottom: 10px;
+      }
+
+      .sevenfive-width {
+        width: 75%;
+        background: lightcoral;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      style="
+        width: 200px;
+        height: 200px;
+        background-color: lightgrey;
+       
+      "
+    >
+      <!-- This bottom div will take 50% of the parent's width => 100px -->
+      <div
+        class="half-width"
+        style="width: 50%; background: lightblue; margin-bottom: 10px"
+      >
+        I am 50% wide
+      </div>
+      <div class="quarter-width">
+      
+        <div class="fiftypercent-internal" style="background-color: red; width: 50%">
+          
+         50%
+        </div>
+      </div>
+      <div class="sevenfive-width">75% wide</div>
+      <div class="quarter-width">25% wide</div>
+    </div>
+  </body>
+</html>

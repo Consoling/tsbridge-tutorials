@@ -63,3 +63,47 @@ if font size = 20px thne 1em = 20px
  0.5em = 1/2 * 16px = 8px
 
  
+
+ 
+Unit II - REM: 
+
+1rem = root elements font size (16px)
+
+key difference from em:
+
+em = based on current element
+rem = based on root (html element)
+rem never stacks
+
+
+
+Unit III - Percentage: 
+
+Percentage is always relative to its parent element
+
+- width/height is of parents width/height
+
+- font-size - percentage of parent's font-size
+- margin/padding - percentage of parent's width 
+
+
+
+Unit III - ViewPort: 
+
+Viewport - the visible area of our webpage
+
+vw - viewport width (1vw = 1% of screen width)
+vh - viewport height (1vh = 1% of screen height)
+
+can be maxed up to 100
+
+vmin = smaller of vw or vh
+vmax = larger of vw or vh
+
+
+
+Display Types:
+
+- bLock => take full width, start new line (p, h1, div)
+- inline => only takes needed space, flows with text (Span, a , strong)
+- inline-block => flows like inline but can have width and height
