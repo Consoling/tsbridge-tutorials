@@ -1,0 +1,24 @@
+Old Problems:
+
+ - centering content required complex methods (css)
+ - making equal-height columns was nearly impossible
+ - responsive layouts needed lots of css
+ - Floating elements broke easily
+
+
+ The Modern Solutions:
+ Flexbox  - perfect for 1D layout (row, column)
+ Media Queries - website adapt to different screen sizes
+ Flexbox + MEdia Query = Beautiful Webpage (responsive)
+
+
+
+ PART 1 - Flexbox
+ Flexbox works with two types of elements:
+
+ Flex Container (parent) - example : display: Flex
+ Flex Items (children) - automically becomes flexible
+
+ The flex Axes:
+
+ Main Axis: Primary Direction (horizontal)
