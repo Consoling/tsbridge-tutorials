@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        .flex-item{
+            text-align: center;
+            background: lightblue;
+            padding: 20px;
+        }
+
+        .grow-1 {
+            flex-grow: 1;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- <h3>Sidebar + Main content pattern</h3> -->
+    <div
+      class="flex-container"
+      style="
+        display: flex;
+        /* flex-direction: row; */
+        width: 100%;
+        height: 100vh;
+        background-color: lightgray;
+        /* padding: 20px; */
+
+      "
+    >
+      <div
+        class="flex-item grow-0"
+        style="flex-basis: 200px; background-color: coral; "
+      >
+        Sidebar (fixed width)
+      </div>
+      <div class="flex-item grow-1">
+        Main Content
+      </div>
+    </div>
+  </body>
+</html>

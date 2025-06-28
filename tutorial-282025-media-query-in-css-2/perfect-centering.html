@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Perfect Centering SOlution</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgba(0, 0, 0, 0.8);
+      }
+      .perfect-center {
+        display: flex;
+        width: 100%;
+        /* background-color: black; */
+        background: #34229c;
+        background: linear-gradient(
+          90deg,
+          rgba(52, 34, 156, 1) 0%,
+          rgba(139, 87, 199, 1) 50%,
+          rgba(114, 83, 237, 1) 100%
+        );
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+      }
+
+      label {
+        font-size: 14px;
+        font-weight: 500;
+        text-align: left;
+        width: 100%;
+      }
+      input {
+        width: 100%;
+        height: 30px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding: 0 10px;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #007bff;
+      }
+
+      .submit-button {
+        width: 100%;
+
+        height: 40px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .submit-button:hover {
+        transform: scale(1.1);
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="perfect-center">
+      <div
+        class="login-container"
+        style="
+          width: 350px;
+          height: 350px;
+          /* background-color: white; */
+          background-color: rgba(255, 255, 255, 0.3);
+          border: 1px solid #ccc;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        "
+      >
+        <h3 class="" style="font-size: 28px">Welcome Back</h3>
+        <span>Sign in to your account</span>
+
+        <form
+          style="
+            display: flex;
+            flex-direction: column;
+            /* gap: 10px; */
+            margin-top: 20px;
+            align-items: center;
+          "
+        >
+          <label for="email">Email</label>
+          <input type="email" name="" id="email" style="margin: 10px 0" />
+          <label for="password">Password</label>
+          <input type="password" name="" id="password" style="margin: 10px 0" />
+
+          <button class="submit-button">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

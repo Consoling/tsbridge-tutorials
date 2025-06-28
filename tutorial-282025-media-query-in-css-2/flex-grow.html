@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flex Grow</title>
+    <style>
+      .flex-container {
+        display: flex;
+        background: lightgray;
+        padding: 20px;
+        margin: 10px;
+        width: 100%;
+      }
+
+      .flex-item {
+        background: #4caf50;
+        color: white;
+        padding: 20px;
+        margin: 10px;
+        text-align: center;
+        /* flex-grow: 0;  */
+      }
+
+      .grow-0 {
+        flex-grow: 0;
+      }
+      .grow-1 {
+        flex-grow: 1;
+      }
+      .grow-2 {
+        flex-grow: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Without flex-grow (default behaviour)</h3>
+    <div class="flex-container">
+      <div class="flex-item grow-0">No Grow</div>
+      <div class="flex-item grow-0">No Grow</div>
+      <div class="flex-item grow-0">No Grow</div>
+    </div>
+    <h3>With flex-grow: 1 (equal distribution)</h3>
+    <div class="flex-container">
+      <div class="flex-item grow-1">Grow - 1</div>
+      <div class="flex-item grow-1">Grow - 1</div>
+      <div class="flex-item grow-1">Grow - 1</div>
+    </div>
+    <h3>Mixed flex-grow values</h3>
+    <div class="flex-container">
+      <div class="flex-item grow-1">Grow 1</div>
+      <div class="flex-item grow-2">Grow 2 (bigger)</div>
+      <div class="flex-item grow-1">Grow 1</div>
+    </div>
+
+   
+  </body>
+</html>

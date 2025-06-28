@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .flex-container {
+        display: flex;
+        background: lightgray;
+        padding: 20px;
+        margin: 10px 0;
+      }
+
+      .flex-item {
+        background: lightblue;
+        padding: 15px;
+        margin: 5px;
+        border: 2px solid blue;
+        text-align: center;
+      }
+
+      .flex-none {
+        flex: 0 0 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Common flex patterns</h3>
+
+    <h4>flex: none (fixed size, no flexibilty)</h4>
+    <div class="flex-container">
+      <div class="flex-item flex-none">Fixed Size</div>
+      <div class="flex-item flex-none">Fixed Size</div>
+      <div class="flex-item flex-none">Fixed Size</div>
+      <div class="flex-item flex-none">Fixed Size</div>
+    </div>
+  </body>
+</html>
