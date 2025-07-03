@@ -1,0 +1,88 @@
+What is a Responsive Design?
+
+A responsive design is a web dev approach that ensures websites adapt and display optimally across different devices and screen sizes.
+
+Screen Sizes:
+- SM, MD, LG, XL, 2XL
+
+SM - mobile devices
+MD - Tablets
+LG- Laptops
+XL - Monitors, Tv screen
+2XL - Larger TV's
+
+
+Logical Approach:
+
+Instead of creating separate mobile and desktop versions,
+
+We can create responsive designs using flexible layouts, images, and css media queries to create a single websites
+that works on every screen size
+
+
+CSS Media Queries:
+
+Media Queries are CSS3 Features that allows us to apply different styles based on different screen width, height 
+, orientation, resolution, and more. 
+
+
+Basic Syntax:
+
+@media media-type and (media-feature){
+    CSS rules go here
+}
+
+Components:
+
+@media = The at rule that starts a media query
+media-type = Specifies the type of media (screen, print, speech, etc)
+and - combine conditions
+media-feature: The condition being tested (width, height)
+
+Media TYpes:
+
+1. Screens: Mobiles. laptops, Tablets, Monitors, etc...
+2. Print: For printed pages and print preview
+3. speech: Speech synthesizers
+4. all: Match all devices 
+
+Media features:
+ 1. Width-based features:
+width - exact viewport width
+min-width
+max-width
+device-width
+
+ 2. Height-based feature:
+ height: exact viewport height
+ min-height
+ max-height
+
+ 3. orientation
+ landscape
+ portrait
+
+ 4. resolution
+
+ resolution: screen pixel density(96dpi, 300dpi, 2dppx)
+ min-resolution
+ max-resolution
+
+ Standard Breakpoints:
+
+ Extra Small Devices (phones): <576px (0px - 576px)
+ Small Devices (landscape phones): >= 576px (576px - 767px)
+ Medium Device (tablets): >= 768px (768px - 991px)
+ Large Device (Laptops): >=992px  (992px - 1199px)
+ Extra Large Devices: >= 1200px  (1200px - 1439px)
+
+ Best Approach:
+
+ Mobile-first Website:
+ start with mobile styles as base
+ use min width
+
+ Desktop first approach:
+ start with desktop styles as base
+ use max-width 
+ 

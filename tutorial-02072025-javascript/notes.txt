@@ -1,0 +1,44 @@
+// What can JS Do ?
+
+- it can make websites interactive (like youtubes search suggestion)
+- Create animations (like instagram like on double tap)
+- handling user input (like googles search autocomplete)
+- fetching data from servers
+- build entire apps (like whatsapp, youtube)
+
+// Variables in JavaScript
+
+
+A variable acts as a container for retaining the data
+for a short term
+
+
+student
+
+
+name = "JOhn"
+age = 21
+marks = 32
+isPassed = False
+
+
+
+Data TYpes:
+
+1 . Primitive data TYpes
+2. Non-Primitive data TYpes
+
+primitive data types :
+String, number, boolean, null, undefined
+
+non-primitive data types :
+array, objects, functions
+
+Objects : Objects are collections of properties and methods
+
+Assume we have a car:
+
+Properties of car can be its color, model, launch date, the engine type, 
+the car type
+
+Methods of car can be functions like startEngine, stopengine, accelerate,etc

@@ -18,9 +18,87 @@
         .grow-1 {
             flex-grow: 1;
         }
+          .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333;
+        padding: 1rem 2rem;
+        color: white;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .nav-links > li > a {
+        color: white;
+        text-decoration: none;
+        /* background: black; */
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+
+      .nav-links > li > a:hover {
+        background-color: #555;
+      }
+
+      .nav-button {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .btn {
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        background-color: #007bff;
+        transition: background-color 0.3s ease;
+      }
     </style>
   </head>
   <body>
+    <nav class="navbar">
+      <div class="logo">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          style="cursor: pointer;"
+          class="lucide lucide-menu-icon lucide-menu"
+          id="menu-icon"
+        >
+          <path d="M4 12h16" />
+          <path d="M4 18h16" />
+          <path d="M4 6h16" />
+        </svg>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-button">
+        <a href="" class="btn btn-login">Login</a>
+        <a href="" class="btn btn-signup">Signup</a>
+      </div>
+    </nav>
     <!-- <h3>Sidebar + Main content pattern</h3> -->
     <div
       class="flex-container"
@@ -36,7 +114,8 @@
     >
       <div
         class="flex-item grow-0"
-        style="flex-basis: 200px; background-color: coral; "
+        style="flex-basis: 200px; background-color: coral; display: none; transition: all 0.3s ease-in-out; "
+        id="sidebar"
       >
         Sidebar (fixed width)
       </div>
@@ -44,5 +123,13 @@
         Main Content
       </div>
     </div>
+    <script>
+      const menuIcon = document.getElementById('menu-icon');
+      const sidebar = document.getElementById('sidebar');
+
+      menuIcon.addEventListener('click', () => {
+        sidebar.style.display = sidebar.style.display === 'none' ? 'block ' : 'none';
+      });
+    </script>
   </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Perfect Centering SOlution</title>
+    <title>JS Example</title>
     <style>
       body {
         padding: 0;
@@ -101,7 +101,9 @@
         </form>
       </div>
     </div>
-
+    <!-- External JS -->
+    <script src="./script.js"></script>
+    <!-- Internal JS -->
     <script>
       document.getElementById("submit").addEventListener("click", () => {
         const email = document.getElementById("email").value;
@@ -112,7 +114,7 @@
         } else {
           alert(`Email: ${email}\nPassword: ${password}`);
         }
-      })
+      });
     </script>
   </body>
 </html>
