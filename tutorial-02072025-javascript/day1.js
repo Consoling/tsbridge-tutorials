@@ -192,7 +192,7 @@ console.log(carsString); // Toyota, Honda, BMW, Mercedes, Audi
 
 // / Accessing Object Properties
 
-console.log(person.name); 
+console.log(person.name);
 
 //  Accessing Arrays
 
@@ -222,12 +222,12 @@ let lastElement
 let lastIndex = null
 
 
-console.log(typeof(lastIndex))
+console.log(typeof (lastIndex))
 
 // OPearators
 
 // 1. Arithmetic Operators
- // Used to perform mathematical operations on numbers
+// Used to perform mathematical operations on numbers
 // + - * / %
 
 // + plus
@@ -236,3 +236,142 @@ console.log(typeof(lastIndex))
 // / divide
 // % modulus (remainder)
 
+let guests = 25;
+let pizzaSlices = 8;
+let pizzaNeeded = Math.ceil(guests / pizzaSlices); // Rounds up to the nearest whole number
+console.log(`You need ${pizzaNeeded} pizzas for ${guests} guests.`);
+
+
+// 2. Assignment Operators
+// Used to assign values to variables
+
+let money = 1000;
+money += 500
+money -= 500
+money *= 2; // money = money * 2
+money /= 2; // money = money / 2
+money %= 3; // money = money % 3
+
+let phoneStorage = 64; // in GB
+phoneStorage -= 10 // Used to store photos
+phoneStorage -= 5 // Used to store apps
+console.log(`Available storage: ${phoneStorage} GB`); // Available storage: 49 GB
+
+
+// 3. Comparison Operators
+
+let yourAge = 25;
+let minimumAge = 18;
+
+
+console.log(yourAge > minimumAge); // true
+console.log(yourAge < minimumAge); // false
+console.log(yourAge >= minimumAge); // true
+console.log(yourAge <= minimumAge); // false
+console.log(yourAge == minimumAge); // false
+console.log(yourAge != minimumAge); // true
+
+
+// 4. Logical Operators
+// Used to combine multiple conditions
+
+let isWeatherGood = true;
+let haveFood = true;
+let haveFriends = false;
+
+let canHavePicnic = isWeatherGood && haveFood && haveFriends; // true if all conditions are true
+console.log(`Can have picnic: ${canHavePicnic}`); // Can have picnic:
+
+let canStayHome = !isWeatherGood || !haveFood || !haveFriends; // true if any condition is false
+console.log(`Can stay home: ${canStayHome}`); // Can stay home: true
+
+let shouldBringUmbrella = !isWeatherGood  // true if either condition is true
+console.log(`Should bring umbrella: ${shouldBringUmbrella}`); // Should bring umbrella:
+
+
+//  5. String Operators
+// Used to concatenate strings
+
+let firstName = 'John';
+let lastName = 'Doe';
+let fullName = firstName + ' ' + lastName; // Concatenation
+
+console.log(`Full Name: ${fullName}`); // Full Name: JohnDoe
+
+
+
+// Simple Expression
+// an expression is like a sentence that produces a value.
+// Think of it as a  question that JS answers
+
+// Simple Expression
+
+let sum = 2 + 2
+console.log(`Sum: ${sum}`); // Sum: 4
+
+console.log(`Weather Good: ${isWeatherGood}`); // Sum: 4
+
+// let fullName = firstName + ' ' + lastName; 
+
+// Complex Expression
+
+
+let homework = 85;
+let midterm = 92;
+let finalExam = 88;
+let finalGrade = (homework + midterm + finalExam) / 3; // Average grade
+console.log(`Final Grade: ${finalGrade}`); // Final Grade: 88.333
+
+
+// checking if we can afford somethign as per our balance
+
+let bankBalance = 500;
+let itemPrice = 300;
+let tax = itemPrice * 0.1; // 10% tax
+let totalPrice = itemPrice + tax; // Total price including tax
+console.log(`Total Price: ${totalPrice}`); // Total Price: 330
+
+let canAfford = bankBalance >= totalPrice; // true if bank balance is greater than or equal to total price
+console.log(`Can afford item: ${canAfford}`); // Can afford item: true
+
+
+// Planning a road trip
+
+let distanceToDestination = 300; // in km
+let carSpeed = 60; // in km/h
+let fuelPricePerLitre = 97; // in currency units
+let carMileage = 18; // in km/litre
+
+let travelTime = distanceToDestination / carSpeed; // in hours
+let fuelNeeded = distanceToDestination / carMileage; // in litres
+let totalCost = fuelNeeded * fuelPricePerLitre; // in currency units
+
+console.log(`Travel Time: ${travelTime} hours`); // Travel Time: 5 hours
+console.log(`Fuel Needed: ${fuelNeeded} litres`); // Fuel Needed: 16.666 litres
+console.log(`Total Cost: ${totalCost} currency units`); // Total Cost:
+
+// Loops 
+
+
+// 1. For Loop
+
+
+console.log('starting pushups');
+for (let i = 1; pushup = 10; pushup++){
+    console.log(`Pushup ${i}`);
+}
+console.log('Pushups completed!');
+
+
+let shoppingCart = ["apple", "banana", "orange", "grape", "kiwi"];
+
+// index  = 0;
+// total index = 4;
+// length starts from 1 
+// total length = 5
+
+
+
+for (let i = 0; i < shoppingCart.length; i++) {
+    console.log(`Item ${i + 1}: ${shoppingCart[i]}`);
+}
