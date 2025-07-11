@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>DOM</h1>
+    <p id="paragraph">This is a paragraph.</p>
+
+    <span class="span-tag">I am span tag</span>
+
+    <div
+      style="
+        width: 250px;
+        height: 300px;
+        border-radius: 5px;
+        background-color: lightblue;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+      "
+      id="mainCntnr"
+    >
+      <h1>ID Card</h1>
+      <img
+        src="https://avatar.iran.liara.run/public/43"
+        alt="Profile Image"
+        class="profile-img"
+        id="profile-img"
+        style="width: 100px; height: 100px; border-radius: 5px"
+      />
+      <p id="user-name" class="user-name">User Name</p>
+      <p id="status" class="green">Status</p>
+    </div>
+
+    <button
+      id="cstmclrbtn"
+      style="
+        margin-top: 27px;
+        padding: 5px;
+        border: none;
+        background-color: black;
+        color: white;
+      "
+    >
+      Customize Color of your ID
+    </button>
+    <button
+      id="clrchnge"
+      style="
+        margin-top: 27px;
+        padding: 5px;
+        border: none;
+        background-color: black;
+        color: white;
+      "
+    >
+      Refresh status
+    </button>
+    <script src="index.js"></script>
+  </body>
+</html>
