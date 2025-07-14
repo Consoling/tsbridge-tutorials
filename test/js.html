@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript for React - Interactive Lecture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-btn {
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .nav-btn:hover, .nav-btn.active {
+            background: rgba(255,255,255,0.4);
+            transform: translateY(-2px);
+        }
+        
+        .section {
+            display: none;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .example {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        
+        .interactive {
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #28a745;
+        }
+        
+        .output {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            font-family: monospace;
+        }
+        
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #5a6fd8;
+        }
+        
+        .timer {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #28a745;
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        .key-points {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+        }
+        
+        .key-points h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 5px 0;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer">
+        <div id="timer">Time: 0:00</div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress"></div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>🚀 JavaScript Essentials for React</h1>
+            <p>Master the core JS concepts you need before diving into React</p>
+        </div>
+        
+        <div class="nav">
+            <button class="nav-btn active" onclick="showSection('intro')">Introduction</button>
+            <button class="nav-btn" onclick="showSection('es6')">ES6+ Features</button>
+            <button class="nav-btn" onclick="showSection('functions')">Functions & Scope</button>
+            <button class="nav-btn" onclick="showSection('arrays')">Arrays & Objects</button>
+            <button class="nav-btn" onclick="showSection('async')">Async JavaScript</button>
+            <button class="nav-btn" onclick="showSection('dom')">DOM & Events</button>
+            <button class="nav-btn" onclick="showSection('patterns')">Modern Patterns</button>
+            <button class="nav-btn" onclick="showSection('practice')">Practice</button>
+        </div>
+
+        <!-- Introduction Section -->
+        <div class="section active" id="intro">
+            <h2>🎯 Why These Concepts Matter for React</h2>
+            <p>Before we dive into React, let's understand why these JavaScript concepts are essential:</p>
+            
+            <div class="key-points">
+                <h4>React heavily uses:</h4>
+                <ul>
+                    <li><strong>Arrow Functions</strong> - for event handlers and component methods</li>
+                    <li><strong>Destructuring</strong> - for extracting props and state</li>
+                    <li><strong>Array Methods</strong> - for rendering lists and transforming data</li>
+                    <li><strong>Promises/Async</strong> - for API calls and side effects</li>
+                    <li><strong>Immutability</strong> - for state updates and re-renders</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h3>Quick React Preview</h3>
+                <div class="code-block">
+// This is what React code looks like - notice the JS concepts:
+const UserList = ({ users }) => {
+    const [loading, setLoading] = useState(false);
+    
+    const handleClick = async (userId) => {
+        setLoading(true);
+        const response = await fetch(`/api/users/${userId}`);
+        const user = await response.json();
+        setLoading(false);
+    };
+    
+    return (
+        &lt;div&gt;
+            {users.map(user => (
+                &lt;div key={user.id} onClick={() => handleClick(user.id)}&gt;
+                    {user.name}
+                &lt;/div&gt;
+            ))}
+        &lt;/div&gt;
+    );
+};
+                </div>
+                <p>Don't worry about understanding this yet - by the end of this lecture, every part will make sense!</p>
+            </div>
+        </div>
+
+        <!-- ES6+ Features Section -->
+        <div class="section" id="es6">
+            <h2>📦 ES6+ Features (20 mins)</h2>
+            
+            <h3>1. Arrow Functions</h3>
+            <div class="example">
+                <div class="code-block">
+// Traditional function
+function greet(name) {
+    return "Hello " + name;
+}
+
+// Arrow function
+const greet = (name) => "Hello " + name;
+
+// Multiple parameters
+const add = (a, b) => a + b;
+
+// Block body
+const processUser = (user) => {
+    console.log(`Processing ${user.name}`);
+    return { ...user, processed: true };
+};
+                </div>
+                
+                <div class="interactive">
+                    <h4>Try it yourself:</h4>
+                    <button onclick="demonstrateArrowFunctions()">Test Arrow Functions</button>
+                    <div class="output" id="arrow-output"></div>
+                </div>
+            </div>
+
+            <h3>2. Destructuring</h3>
+            <div class="example">
+                <div class="code-block">
+// Object destructuring
+const user = { name: "Alice", age: 30, city: "NYC" };
+const { name, age } = user;
+
+// Array destructuring
+const colors = ["red", "green", "blue"];
+const [first, second] = colors;
+
+// Function parameter destructuring
+const greetUser = ({ name, age }) => `Hi ${name}, you are ${age}`;
+
+// Default values
+const { name = "Anonymous", country = "Unknown" } = user;
+                </div>
+                
+                <div class="interactive">
+                    <h4>Practice:</h4>
+                    <button onclick="demonstrateDestructuring()">Show Destructuring</button>
+                    <div class="output" id="destructuring-output"></div>
+                </div>
+            </div>
+
+            <h3>3. Spread Operator</h3>
+            <div class="example">
+                <div class="code-block">
+// Array spread
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 4, 5]; // [1, 2, 3, 4, 5]
+
+// Object spread
+const user = { name: "Bob", age: 25 };
+const updatedUser = { ...user, age: 26 }; // { name: "Bob", age: 26 }
+
+// Function arguments
+const numbers = [1, 2, 3];
+Math.max(...numbers); // same as Math.max(1, 2, 3)
+                </div>
+                
+                <div class="interactive">
+                    <h4>Interactive Example:</h4>
+                    <button onclick="demonstrateSpread()">Test Spread Operator</button>
+                    <div class="output" id="spread-output"></div>
+                </div>
+            </div>
+
+            <div class="key-points">
+                <h4>🔑 Key Takeaways:</h4>
+                <ul>
+                    <li>Arrow functions are shorter and don't bind their own 'this'</li>
+                    <li>Destructuring extracts values from objects/arrays cleanly</li>
+                    <li>Spread operator creates copies without mutation</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Functions & Scope Section -->
+        <div class="section" id="functions">
+            <h2>⚡ Functions & Scope (15 mins)</h2>
+            
+            <h3>1. Higher-Order Functions</h3>
+            <div class="example">
+                <div class="code-block">
+// Function that takes another function as parameter
+const runTwice = (fn) => {
+    fn();
+    fn();
+};
+
+// Function that returns a function
+const createGreeter = (greeting) => {
+    return (name) => `${greeting}, ${name}!`;
+};
+
+const sayHello = createGreeter("Hello");
+const sayHi = createGreeter("Hi");
+                </div>
+                
+                <div class="interactive">
+                    <h4>Try it:</h4>
+                    <button onclick="demonstrateHigherOrder()">Test Higher-Order Functions</button>
+                    <div class="output" id="higher-order-output"></div>
+                </div>
+            </div>
+
+            <h3>2. Closures</h3>
+            <div class="example">
+                <div class="code-block">
+// Closure example
+const createCounter = () => {
+    let count = 0;
+    return () => {
+        count++;
+        return count;
+    };
+};
+
+const counter1 = createCounter();
+const counter2 = createCounter();
+
+// Each counter has its own 'count' variable
+console.log(counter1()); // 1
+console.log(counter1()); // 2
+console.log(counter2()); // 1
+                </div>
+                
+                <div class="interactive">
+                    <h4>Interactive Demo:</h4>
+                    <button onclick="demonstrateClosures()">Test Closures</button>
+                    <div class="output" id="closures-output"></div>
+                </div>
+            </div>
+
+            <h3>3. This Keyword</h3>
+            <div class="example">
+                <div class="code-block">
+const person = {
+    name: "Alice",
+    greet: function() {
+        return `Hello, I'm ${this.name}`;
+    },
+    greetArrow: () => {
+        return `Hello, I'm ${this.name}`; // 'this' is undefined!
+    }
+};
+
+// Method call
+person.greet(); // "Hello, I'm Alice"
+person.greetArrow(); // "Hello, I'm undefined"
+                </div>
+                
+                <div class="interactive">
+                    <h4>Compare This Binding:</h4>
+                    <button onclick="demonstrateThis()">Test 'this' Keyword</button>
+                    <div class="output" id="this-output"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Arrays & Objects Section -->
+        <div class="section" id="arrays">
+            <h2>🗂️ Arrays & Objects (20 mins)</h2>
+            
+            <h3>1. Essential Array Methods</h3>
+            <div class="example">
+                <div class="code-block">
+const users = [
+    { id: 1, name: "Alice", age: 30 },
+    { id: 2, name: "Bob", age: 25 },
+    { id: 3, name: "Charlie", age: 35 }
+];
+
+// map() - transform each element
+const names = users.map(user => user.name);
+
+// filter() - select elements that meet criteria
+const youngUsers = users.filter(user => user.age < 30);
+
+// find() - get first element that matches
+const alice = users.find(user => user.name === "Alice");
+
+// reduce() - accumulate values
+const totalAge = users.reduce((sum, user) => sum + user.age, 0);
+                </div>
+                
+                <div class="interactive">
+                    <h4>Practice with Real Data:</h4>
+                    <button onclick="demonstrateArrayMethods()">Run Array Methods</button>
+                    <div class="output" id="array-methods-output"></div>
+                </div>
+            </div>
+
+            <h3>2. Immutability</h3>
+            <div class="example">
+                <div class="code-block">
+// ❌ Mutating original array (BAD for React)
+const addUser = (users, newUser) => {
+    users.push(newUser);
+    return users;
+};
+
+// ✅ Creating new array (GOOD for React)
+const addUser = (users, newUser) => {
+    return [...users, newUser];
+};
+
+// ✅ Updating object immutably
+const updateUser = (user, updates) => {
+    return { ...user, ...updates };
+};
+                </div>
+                
+                <div class="interactive">
+                    <h4>Test Immutability:</h4>
+                    <button onclick="demonstrateImmutability()">Compare Mutable vs Immutable</button>
+                    <div class="output" id="immutability-output"></div>
+                </div>
+            </div>
+
+            <h3>3. Object Manipulation</h3>
+            <div class="example">
+                <div class="code-block">
+const user = { name: "Alice", age: 30, city: "NYC" };
+
+// Object.keys() - get all keys
+const keys = Object.keys(user); // ["name", "age", "city"]
+
+// Object.values() - get all values
+const values = Object.values(user); // ["Alice", 30, "NYC"]
+
+// Object.entries() - get key-value pairs
+const entries = Object.entries(user); // [["name", "Alice"], ["age", 30], ["city", "NYC"]]
+
+// Dynamic property access
+const property = "name";
+const value = user[property]; // "Alice"
+                </div>
+                
+                <div class="interactive">
+                    <h4>Explore Objects:</h4>
+                    <button onclick="demonstrateObjects()">Test Object Methods</button>
+                    <div class="output" id="objects-output"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Async JavaScript Section -->
+        <div class="section" id="async">
+            <h2>⏰ Asynchronous JavaScript (15 mins)</h2>
+            
+            <h3>1. Promises & Async/Await</h3>
+            <div class="example">
+                <div class="code-block">
+// Promise-based function
+const fetchUser = (id) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (id > 0) {
+                resolve({ id, name: `User ${id}`, age: 25 });
+            } else {
+                reject(new Error("Invalid user ID"));
+            }
+        }, 1000);
+    });
+};
+
+// Using async/await
+const getUser = async (id) => {
+    try {
+        const user = await fetchUser(id);
+        console.log("User:", user);
+        return user;
+    } catch (error) {
+        console.error("Error:", error.message);
+    }
+};
+                </div>
+                
+                <div class="interactive">
+                    <h4>Try Async Operations:</h4>
+                    <button onclick="demonstrateAsync()">Fetch User Data</button>
+                    <div class="output" id="async-output"></div>
+                </div>
+            </div>
+
+            <h3>2. Fetch API</h3>
+            <div class="example">
+                <div class="code-block">
+// Basic fetch example
+const fetchData = async () => {
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users/1');
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+};
+
+// POST request
+const createUser = async (userData) => {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData)
+    });
+    return response.json();
+};
+                </div>
+                
+                <div class="interactive">
+                    <h4>Real API Call:</h4>
+                    <button onclick="demonstrateFetch()">Fetch Real Data</button>
+                    <div class="output" id="fetch-output"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DOM & Events Section -->
+        <div class="section" id="dom">
+            <h2>🖱️ DOM & Events (10 mins)</h2>
+            
+            <h3>1. Event Handling</h3>
+            <div class="example">
+                <div class="code-block">
+// Event listener
+button.addEventListener('click', (event) => {
+    console.log('Button clicked!');
+    console.log('Event target:', event.target);
+    console.log('Event type:', event.type);
+});
+
+// Event object properties
+const handleClick = (event) => {
+    event.preventDefault(); // Prevent default behavior
+    event.stopPropagation(); // Stop event bubbling
+    
+    const { target, type, clientX, clientY } = event;
+    console.log(`${type} on ${target.tagName} at (${clientX}, ${clientY})`);
+};
+                </div>
+                
+                <div class="interactive">
+                    <h4>Interactive Events:</h4>
+                    <button onclick="demonstrateEvents(event)">Click Me!</button>
+                    <input type="text" placeholder="Type here..." onkeyup="handleKeyEvent(event)">
+                    <div class="output" id="events-output"></div>
+                </div>
+            </div>
+
+            <h3>2. DOM Manipulation</h3>
+            <div class="example">
+                <div class="code-block">
+// Select elements
+const element = document.getElementById('myId');
+const elements = document.querySelectorAll('.myClass');
+
+// Modify content
+element.textContent = 'New text';
+element.innerHTML = '&lt;strong&gt;Bold text&lt;/strong&gt;';
+
+// Modify attributes
+element.setAttribute('data-value', '123');
+element.classList.add('active');
+element.classList.remove('inactive');
+
+// Create and append elements
+const newElement = document.createElement('div');
+newElement.textContent = 'Hello World';
+document.body.appendChild(newElement);
+                </div>
+                
+                <div class="interactive">
+                    <h4>DOM Manipulation:</h4>
+                    <button onclick="demonstrateDOM()">Manipulate DOM</button>
+                    <div class="output" id="dom-output"></div>
+                    <div id="dom-playground"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modern Patterns Section -->
+        <div class="section" id="patterns">
+            <h2>🎨 Modern JavaScript Patterns (10 mins)</h2>
+            
+            <h3>1. Conditional Rendering</h3>
+            <div class="example">
+                <div class="code-block">
+const user = { name: "Alice", isLoggedIn: true };
+
+// Ternary operator
+const greeting = user.isLoggedIn ? `Welcome, ${user.name}!` : "Please log in";
+
+// Logical AND (&&)
+const showProfile = user.isLoggedIn && user.name;
+
+// Logical OR (||) for defaults
+const displayName = user.name || "Anonymous";
+
+// Nullish coalescing (??)
+const age = user.age ?? 0; // Only null/undefined, not falsy values
+                </div>
+                
+                <div class="interactive">
+                    <h4>Test Conditional Logic:</h4>
+                    <button onclick="demonstrateConditionals()">Show Conditionals</button>
+                    <div class="output" id="conditionals-output"></div>
+                </div>
+            </div>
+
+            <h3>2. Template Literals</h3>
+            <div class="example">
+                <div class="code-block">
+const user = { name: "Alice", age: 30 };
+
+// Basic template literal
+const greeting = `Hello, ${user.name}!`;
+
+// Multi-line strings
+const message = `
+    Welcome to our app, ${user.name}!
+    You are ${user.age} years old.
+    Have a great day!
+`;
+
+// Expression evaluation
+const status = `User ${user.name} is ${user.age >= 18 ? 'adult' : 'minor'}`;
+                </div>
+                
+                <div class="interactive">
+                    <h4>Template Literals Demo:</h4>
+                    <button onclick="demonstrateTemplates()">Show Templates</button>
+                    <div class="output" id="templates-output"></div>
+                </div>
+            </div>
+
+            <h3>3. Short-Circuit Evaluation</h3>
+            <div class="example">
+                <div class="code-block">
+// Logical AND for conditional execution
+user.isAdmin && console.log("Admin actions available");
+
+// Logical OR for default values
+const theme = user.preferences.theme || "light";
+
+// Complex conditions
+const canEdit = user.isLoggedIn && (user.isAdmin || user.isOwner);
+
+// Function calls
+user.isLoggedIn && updateUserActivity();
+                </div>
+                
+                <div class="interactive">
+                    <h4>Short-Circuit Examples:</h4>
+                    <button onclick="demonstrateShortCircuit()">Test Short-Circuit</button>
+                    <div class="output" id="short-circuit-output"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practice Section -->
+        <div class="section" id="practice">
+            <h2>💪 Practice Exercises (20 mins)</h2>
+            
+            <h3>Exercise 1: User Management</h3>
+            <div class="example">
+                <p>Create a function that processes user data like React would:</p>
+                <div class="code-block">
+// TODO: Complete this function
+const processUsers = (users) => {
+    // 1. Filter users who are active
+    // 2. Map to get only name and email
+    // 3. Sort by name
+    // 4. Return the result
+};
+                </div>
+                
+                <div class="interactive">
+                    <h4>Your Solution:</h4>
+                    <textarea id="exercise1" rows="6" placeholder="Write your solution here..."></textarea>
+                    <button onclick="checkExercise1()">Check Solution</button>
+                    <div class="output" id="exercise1-output"></div>
+                </div>
+            </div>
+
+            <h3>Exercise 2: Async Data Fetching</h3>
+            <div class="example">
+                <p>Write an async function that fetches and processes data:</p>
+                <div class="code-block">
+// TODO: Complete this async function
+const fetchAndProcessUsers = async () => {
+    // 1. Fetch users from an API
+    // 2. Handle errors
+    // 3. Transform the data
+    // 4. Return processed data
+};
+                </div>
+                
+                <div class="interactive">
+                    <h4>Your Solution:</h4>
+                    <textarea id="exercise2" rows="6" placeholder="Write your async function here..."></textarea>
+                    <button onclick="checkExercise2()">Check Solution</button>
+                    <div class="output" id="exercise2-output"></div>
+                </div>
+            </div>
+
+            <h3>Exercise 3: Event Handling</h3>
+            <div class="example">
+                <p>Create an interactive todo list (React-style thinking):</p>
+                <div class="interactive">
+                    <h4>Mini Todo App:</h4>
+                    <input type="text" id="todo-input" placeholder="Enter a todo...">
+                    <button onclick="addTodo()">Add Todo</button>
+                    <div id="todo-list"></div>
+                    <div class="output" id="todo-output"></div>
+                </div>
+            </div>
+
+            <div class="key-points">
+                <h4>🎯 React Connection:</h4>
+                <ul>
+                    <li>These exercises mirror common React patterns</li>
+                    <li>State management principles apply to React hooks</li>
+                    <li>Event handling is similar to React event handlers</li>
+                    <li>Data transformation is crucial for React renders</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Timer and navigation
+        let startTime = Date.now();
+        let currentSection = 'intro';
+        const totalSections = 8;
+        
+        function updateTimer() {
+            const elapsed = Date.now() - startTime;
+            const minutes = Math.floor(elapsed / 60000);
+            const seconds = Math.floor((elapsed % 60000) / 1000);
+            document.getElementById('timer').textContent = `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+            
+            const sectionIndex = ['intro', 'es6', 'functions', 'arrays', 'async', 'dom', 'patterns', 'practice'].indexOf(currentSection);
+            const progress = ((sectionIndex + 1) / totalSections) * 100;
+            document.getElementById('progress').style.width = progress + '%';
+        }
+        
+        setInterval(updateTimer, 1000);
+        
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+            currentSection = sectionId;
+        }
+        
+        // Interactive demonstrations
+        function demonstrateArrowFunctions() {
+            const output = document.getElementById('arrow-output');
+            
+            // Traditional function
+            function traditionalAdd(a, b) {
+                return a + b;
+            }
+            
+            // Arrow function
+            const arrowAdd = (a, b) => a + b;
+            
+            // Different syntax examples
+            const greet = name => `Hello, ${name}!`;
+            const square = x => x * x;
+            const processData = (data) => {
+                console.log('Processing:', data);
+                return data.toUpperCase();
+            };
+            
+            output.innerHTML = `
+                <strong>Results:</strong><br>
+                Traditional: ${traditionalAdd(5, 3)}<br>
+                Arrow: ${arrowAdd(5, 3)}<br>
+                Greet: ${greet("Alice")}<br>
+                Square: ${square(4)}<br>
+                Process: ${processData("hello world")}
+            `;
+        }
+        
+        function demonstrateDestructuring() {
+            const output = document.getElementById('destructuring-output');
+            
+            // Object destructuring
+            const user = { name: "Alice", age: 30, city: "NYC", country: "USA" };
+            const { name, age, city } = user;
+            const { country = "Unknown" } = user;
+            
+            // Array destructuring
+            const colors = ["red", "green", "blue", "yellow"];
+            const [first, second, ...rest] = colors;
+            
+            // Function parameter destructuring
+            const greetUser = ({ name, age }) => `Hi ${name}, you are ${age} years old`;
+            
+            output.innerHTML = `
+                <strong>Object Destructuring:</strong><br>
+                Name: ${name}, Age: ${age}, City: ${city}<br>
+                Country: ${country}<br><br>
+                <strong>Array Destructuring:</strong><br>
+                First: ${first}, Second: ${second}<br>
+                Rest: [${rest.join(', ')}]<br>
+                <strong>Function Parameter:</strong><br>
+                ${greetUser(user)}
+            `;
+        }
+        
+        function demonstrateSpread() {
+            const output = document.getElementById('spread-output');
+            
+            // Array spread
+            const arr1 = [1, 2, 3];
+            const arr2 = [4, 5, 6];
+            const combined = [...arr1, ...arr2];
+            
+            // Object spread
+            const user = { name: "Bob", age: 25 };
+            const preferences = { theme: "dark", language: "en" };
+            const userWithPrefs = { ...user, ...preferences };
+            
+            // Adding properties
+            const updatedUser = { ...user, age: 26, city: "LA" };
+            
+            output.innerHTML = `
+                <strong>Array Spread:</strong><br>
+                Original: [${arr1.join(', ')}]<br>
+                Combined: [${combined.join(', ')}]<br><br>
+                <strong>Object Spread:</strong><br>
+                Original: ${JSON.stringify(user)}<br>
+                With Preferences: ${JSON.stringify(userWithPrefs)}<br>
+                Updated: ${JSON.stringify(updatedUser)}
+            `;
+        }
+        
+        function demonstrateHigherOrder() {
+            const output = document.getElementById('higher-order-output');
+            
+            // Function that takes a function
+            const runTwice = (fn) => {
+                fn();
+                fn();
+            };
+            
+            // Function that returns a function
+            const createMultiplier = (factor) => (num) => num * factor;
+            
+            const double = createMultiplier(2);
+            const triple = createMultiplier(3);
+            
+            let counter = 0;
+            const increment = () => counter++;
+            
+            runTwice(increment);
+            
+            output.innerHTML = `
+                <strong>Higher-Order Functions:</strong><br>
+                Counter after runTwice: ${counter}<br>
+                Double 5: ${double(5)}<br>
+                Triple 5: ${triple(5)}<br>
+                <em>Functions can be passed around like variables!</em>
+            `;
+        }
+        
+        function demonstrateClosures() {
+            const output = document.getElementById('closures-output');
+            
+            // Closure example
+            const createCounter = () => {
+                let count = 0;
+                return () => {
+                    count++;
+                    return count;
+                };
+            };
+            
+            const counter1 = createCounter();
+            const counter2 = createCounter();
+            
+            output.innerHTML = `
+                <strong>Closures in Action:</strong><br>
+                Counter 1: ${counter1()}, ${counter1()}, ${counter1()}<br>
+                Counter 2: ${counter2()}, ${counter2()}<br>
+                <em>Each counter maintains its own 'count' variable!</em>
+            `;
+        }
+        
+        function demonstrateThis() {
+            const output = document.getElementById('this-output');
+            
+            const person = {
+                name: "Alice",
+                greet: function() {
+                    return `Hello, I'm ${this.name}`;
+                },
+                greetArrow: () => {
+                    return `Hello, I'm ${this?.name || 'undefined'}`;
+                }
+            };
+            
+            output.innerHTML = `
+                <strong>'this' Keyword:</strong><br>
+                Regular function: ${person.greet()}<br>
+                Arrow function: ${person.greetArrow()}<br>
+                <em>Arrow functions don't have their own 'this'!</em>
+            `;
+        }
+        
+        function demonstrateArrayMethods() {
+            const output = document.getElementById('array-methods-output');
+            
+            const users = [
+                { id: 1, name: "Alice", age: 30, active: true },
+                { id: 2, name: "Bob", age: 25, active: false },
+                { id: 3, name: "Charlie", age: 35, active: true }
+            ];
+            
+            // map() - transform each element
+            const names = users.map(user => user.name);
+            
+            // filter() - select elements that meet criteria
+            const activeUsers = users.filter(user => user.active);
+            
+            // find() - get first element that matches
+            const alice = users.find(user => user.name === "Alice");
+            
+            // reduce() - accumulate values
+            const totalAge = users.reduce((sum, user) => sum + user.age, 0);
+            const averageAge = totalAge / users.length;
+            
+            output.innerHTML = `
+                <strong>Array Methods Results:</strong><br>
+                Names: [${names.join(', ')}]<br>
+                Active users: ${activeUsers.length}<br>
+                Found Alice: ${alice ? alice.name : 'Not found'}<br>
+                Total age: ${totalAge}<br>
+                Average age: ${averageAge.toFixed(1)}
+            `;
+        }
+        
+        function demonstrateImmutability() {
+            const output = document.getElementById('immutability-output');
+            
+            const originalUsers = [
+                { id: 1, name: "Alice", age: 30 },
+                { id: 2, name: "Bob", age: 25 }
+            ];
+            
+            // ❌ Mutating approach (BAD)
+            const mutatingAdd = (users, newUser) => {
+                users.push(newUser);
+                return users;
+            };
+            
+            // ✅ Immutable approach (GOOD)
+            const immutableAdd = (users, newUser) => {
+                return [...users, newUser];
+            };
+            
+            const newUser = { id: 3, name: "Charlie", age: 35 };
+            
+            // Test both approaches
+            const originalLength = originalUsers.length;
+            const immutableResult = immutableAdd(originalUsers, newUser);
+            
+            output.innerHTML = `
+                <strong>Immutability Test:</strong><br>
+                Original array length: ${originalLength}<br>
+                Original after immutable add: ${originalUsers.length}<br>
+                New array length: ${immutableResult.length}<br>
+                <em>Original array unchanged - this is what React needs!</em>
+            `;
+        }
+        
+        function demonstrateObjects() {
+            const output = document.getElementById('objects-output');
+            
+            const user = { name: "Alice", age: 30, city: "NYC", active: true };
+            
+            const keys = Object.keys(user);
+            const values = Object.values(user);
+            const entries = Object.entries(user);
+            
+            // Dynamic property access
+            const property = "name";
+            const value = user[property];
+            
+            output.innerHTML = `
+                <strong>Object Methods:</strong><br>
+                Keys: [${keys.join(', ')}]<br>
+                Values: [${values.join(', ')}]<br>
+                Entries: ${entries.map(([k, v]) => `${k}: ${v}`).join(', ')}<br>
+                Dynamic access (${property}): ${value}
+            `;
+        }
+        
+        function demonstrateAsync() {
+            const output = document.getElementById('async-output');
+            output.innerHTML = "Fetching user data...";
+            
+            // Simulate async operation
+            const fetchUser = (id) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve({ id, name: `User ${id}`, age: Math.floor(Math.random() * 40) + 20 });
+                    }, 1000);
+                });
+            };
+            
+            const getUser = async (id) => {
+                try {
+                    const user = await fetchUser(id);
+                    output.innerHTML = `
+                        <strong>Async Result:</strong><br>
+                        User ID: ${user.id}<br>
+                        Name: ${user.name}<br>
+                        Age: ${user.age}<br>
+                        <em>Data fetched successfully!</em>
+                    `;
+                } catch (error) {
+                    output.innerHTML = `<strong>Error:</strong> ${error.message}`;
+                }
+            };
+            
+            getUser(Math.floor(Math.random() * 100) + 1);
+        }
+        
+        function demonstrateFetch() {
+            const output = document.getElementById('fetch-output');
+            output.innerHTML = "Fetching real data from API...";
+            
+            const fetchData = async () => {
+                try {
+                    const response = await fetch('https://jsonplaceholder.typicode.com/users/1');
+                    const user = await response.json();
+                    
+                    output.innerHTML = `
+                        <strong>Real API Data:</strong><br>
+                        Name: ${user.name}<br>
+                        Email: ${user.email}<br>
+                        Company: ${user.company.name}<br>
+                        Website: ${user.website}<br>
+                        <em>Live data from JSONPlaceholder API!</em>
+                    `;
+                } catch (error) {
+                    output.innerHTML = `<strong>Error:</strong> ${error.message}`;
+                }
+            };
+            
+            fetchData();
+        }
+        
+        function demonstrateEvents(event) {
+            const output = document.getElementById('events-output');
+            
+            output.innerHTML = `
+                <strong>Event Information:</strong><br>
+                Type: ${event.type}<br>
+                Target: ${event.target.tagName}<br>
+                Button: ${event.button || 'N/A'}<br>
+                Position: (${event.clientX}, ${event.clientY})<br>
+                Timestamp: ${event.timeStamp}<br>
+                <em>Event object contains lots of useful info!</em>
+            `;
+        }
+        
+        function handleKeyEvent(event) {
+            const output = document.getElementById('events-output');
+            
+            output.innerHTML = `
+                <strong>Keyboard Event:</strong><br>
+                Key: ${event.key}<br>
+                Code: ${event.code}<br>
+                Value: ${event.target.value}<br>
+                Length: ${event.target.value.length}<br>
+                <em>Real-time keyboard input handling!</em>
+            `;
+        }
+        
+        function demonstrateDOM() {
+            const output = document.getElementById('dom-output');
+            const playground = document.getElementById('dom-playground');
+            
+            // Create and manipulate elements
+            const div = document.createElement('div');
+            div.textContent = 'Created with JavaScript!';
+            div.style.padding = '10px';
+            div.style.background = '#e8f5e8';
+            div.style.border = '2px solid #28a745';
+            div.style.borderRadius = '5px';
+            div.style.margin = '10px 0';
+            
+            const button = document.createElement('button');
+            button.textContent = 'Click me!';
+            button.onclick = () => {
+                div.style.background = div.style.background === 'rgb(232, 245, 232)' ? '#ffe8e8' : '#e8f5e8';
+                div.textContent = div.textContent === 'Created with JavaScript!' ? 'Button clicked!' : 'Created with JavaScript!';
+            };
+            
+            playground.innerHTML = '';
+            playground.appendChild(div);
+            playground.appendChild(button);
+            
+            output.innerHTML = `
+                <strong>DOM Manipulation:</strong><br>
+                Created a div and button dynamically<br>
+                Added styles and event listeners<br>
+                <em>Try clicking the button above!</em>
+            `;
+        }
+        
+        function demonstrateConditionals() {
+            const output = document.getElementById('conditionals-output');
+            
+            const user = { name: "Alice", age: 30, isLoggedIn: true, isAdmin: false };
+            
+            // Ternary operator
+            const greeting = user.isLoggedIn ? `Welcome, ${user.name}!` : "Please log in";
+            
+            // Logical AND (&&)
+            const showAdminPanel = user.isLoggedIn && user.isAdmin;
+            
+            // Logical OR (||) for defaults
+            const displayName = user.displayName || user.name || "Anonymous";
+            
+            // Nullish coalescing (??)
+            const age = user.age ?? 0;
+            
+            output.innerHTML = `
+                <strong>Conditional Logic:</strong><br>
+                Greeting: ${greeting}<br>
+                Show admin panel: ${showAdminPanel}<br>
+                Display name: ${displayName}<br>
+                Age: ${age}<br>
+                <em>These patterns are everywhere in React!</em>
+            `;
+        }
+        
+        function demonstrateTemplates() {
+            const output = document.getElementById('templates-output');
+            
+            const user = { name: "Alice", age: 30, city: "NYC" };
+            const items = ["apple", "banana", "orange"];
+            
+            // Basic template literal
+            const greeting = `Hello, ${user.name}!`;
+            
+            // Multi-line template
+            const card = `
+                <div class="user-card">
+                    <h3>${user.name}</h3>
+                    <p>Age: ${user.age}</p>
+                    <p>City: ${user.city}</p>
+                    <p>Status: ${user.age >= 18 ? 'Adult' : 'Minor'}</p>
+                </div>
+            `;
+            
+            // With expressions
+            const itemList = `Items: ${items.map(item => item.toUpperCase()).join(', ')}`;
+            
+            output.innerHTML = `
+                <strong>Template Literals:</strong><br>
+                ${greeting}<br>
+                ${itemList}<br>
+                <strong>Multi-line HTML:</strong><br>
+                <pre>${card}</pre>
+            `;
+        }
+        
+        function demonstrateShortCircuit() {
+            const output = document.getElementById('short-circuit-output');
+            
+            const user = { name: "Alice", isLoggedIn: true, isAdmin: false };
+            let actionLog = [];
+            
+            // Short-circuit evaluation examples
+            user.isLoggedIn && actionLog.push("User is logged in");
+            user.isAdmin && actionLog.push("Admin actions available");
+            !user.isAdmin && actionLog.push("Limited user access");
+            
+            const theme = user.theme || "light";
+            const notifications = user.notifications ?? [];
+            
+            output.innerHTML = `
+                <strong>Short-Circuit Evaluation:</strong><br>
+                Actions: ${actionLog.join(', ')}<br>
+                Theme: ${theme}<br>
+                Notifications: [${notifications.join(', ')}]<br>
+                <em>Conditional execution without if statements!</em>
+            `;
+        }
+        
+        // Practice exercises
+        function checkExercise1() {
+            const code = document.getElementById('exercise1').value;
+            const output = document.getElementById('exercise1-output');
+            
+            const testUsers = [
+                { name: "Alice", email: "alice@example.com", active: true },
+                { name: "Bob", email: "bob@example.com", active: false },
+                { name: "Charlie", email: "charlie@example.com", active: true }
+            ];
+            
+            try {
+                // Create a function from the user's code
+                const userFunction = new Function('users', code);
+                const result = userFunction(testUsers);
+                
+                output.innerHTML = `
+                    <strong>Your Result:</strong><br>
+                    <pre>${JSON.stringify(result, null, 2)}</pre>
+                `;
+            } catch (error) {
+                output.innerHTML = `<strong>Error:</strong> ${error.message}`;
+            }
+        }
+        
+        function checkExercise2() {
+            const code = document.getElementById('exercise2').value;
+            const output = document.getElementById('exercise2-output');
+            
+            output.innerHTML = `
+                <strong>Code Analysis:</strong><br>
+                <pre>${code}</pre>
+                <em>Check if your code includes: async/await, try/catch, fetch, and data transformation!</em>
+            `;
+        }
+        
+        // Todo app for practice
+        let todos = [];
+        
+        function addTodo() {
+            const input = document.getElementById('todo-input');
+            const todoList = document.getElementById('todo-list');
+            const output = document.getElementById('todo-output');
+            
+            if (input.value.trim()) {
+                const todo = {
+                    id: Date.now(),
+                    text: input.value.trim(),
+                    completed: false
+                };
+                
+                todos = [...todos, todo]; // Immutable update
+                input.value = '';
+                
+                renderTodos();
+                
+                output.innerHTML = `
+                    <strong>Current State:</strong><br>
+                    Total todos: ${todos.length}<br>
+                    Completed: ${todos.filter(t => t.completed).length}<br>
+                    <em>Notice the immutable state update!</em>
+                `;
+            }
+        }
+        
+        function renderTodos() {
+            const todoList = document.getElementById('todo-list');
+            
+            todoList.innerHTML = todos.map(todo => `
+                <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
+                    <input type="checkbox" ${todo.completed ? 'checked' : ''} 
+                           onchange="toggleTodo(${todo.id})">
+                    <span style="${todo.completed ? 'text-decoration: line-through;' : ''}">${todo.text}</span>
+                    <button onclick="removeTodo(${todo.id})" style="background: #dc3545;">Remove</button>
+                </div>
+            `).join('');
+        }
+        
+        function toggleTodo(id) {
+            todos = todos.map(todo => 
+                todo.id === id ? { ...todo, completed: !todo.completed } : todo
+            );
+            renderTodos();
+        }
+        
+        function removeTodo(id) {
+            todos = todos.filter(todo => todo.id !== id);
+            renderTodos();
+        }
+        
+        // Allow Enter key to add todos
+        document.addEventListener('DOMContentLoaded', () => {
+            const todoInput = document.getElementById('todo-input');
+            if (todoInput) {
+                todoInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        addTodo();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
