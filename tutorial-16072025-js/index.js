@@ -155,3 +155,6 @@ const doubleValues = numbers.map((item) => {
 
 
 //  render the cart items using DOM manipulation and array map method
+
+
+
