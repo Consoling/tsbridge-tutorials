@@ -1,0 +1,35 @@
+Node JS -
+
+What is Node JS?
+
+Node Js is a JS runtime built on Chrome V8 JS engine 
+
+What does Node JS do ?
+
+Node JS allow us to run JavaScript on server side
+
+What are its features?
+
+Node JS uses an event driven, non-blocking IO model that makes it light and efficient
+
+
+Key Characteristics:
+
+server-side JS: Run JS outside the browser
+Event Driven: Uses events and callbacks for asynchronous programming or operations
+Non- Blocking I/O:  Can handle many operations simultaneously
+Single-Threaded : Main event loop runs on one thread 
+Cross Platform - Runs on Windows, Linux, or macOS
+NPM ecosystems - vast package repository
+
+NPM:
+
+stands for Node Package Manager
+
+acts like a file Manager
+
+helps in:
+- Adding packages
+- Deleting packages
+- Updating packages
+- Checking vulnerability
